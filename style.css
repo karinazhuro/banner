@@ -1,0 +1,27 @@
+@media (min-width: 320px) {
+  body {
+    margin: 0;
+  }
+  .wrapper {
+    padding: 64px 20px 38px 24px;
+
+    background-image: url("img/4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .restore {
+    font-size: 13px;
+    line-height: 41px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
