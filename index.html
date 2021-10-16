@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Banner</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,27 +33,37 @@
         <span class="list-content-text" id="ocr"></span>
       </li>
     </ul>
-    <div class="offers">
-      <div class="offer-month offer-period">
-        <h2 class="period" id="month"></h2>
-        <p class="offer-total-price" id="price-month"></p>
-        <p class="alert-text" id="alert-month"></p>
-        <p class="monthly-price" id="monthly-price-month"></p>
-      </div>
-      <div class="offer-year offer-period">
-        <div class="sale">
-          <img class="img-sale" src="img/sale.svg" alt="">
-          <p id="sale-text"></p>
+    <div class="offers-wrap">
+      <div class="offers">
+        <div class="offer-month offer-period">
+          <input type="radio">
+          <h2 class="period" id="month"></h2>
+          <p class="offer-total-price" id="price-month"></p>
+          <p class="alert-text" id="alert-month"></p>
+          <p class="monthly-price" id="monthly-price-month"></p>
         </div>
-        <h2 class="period" id="year"></h2>
-        <p class="offer-total-price" id="price-year"></p>
-        <p class="alert-text" id="alert-year"></p>
-        <p class="monthly-price" id="monthly-price-year"></p>
+        <div class="offer-year offer-period">
+          <div class="sale">
+            <img class="img-sale" src="img/sale.svg" alt="">
+            <p id="sale-text"></p>
+          </div>
+          <h2 class="period" id="year"></h2>
+          <p class="offer-total-price" id="price-year"></p>
+          <p class="alert-text" id="alert-year"></p>
+          <p class="monthly-price" id="monthly-price-year"></p>
+        </div>
       </div>
+      <button id="continue" type="button"></button>
     </div>
   </main>
+  <footer>
+    <p class="addition-info" id="cancel-subscription"></p>
+    <div class="policy-wrap">
+      <a class="addition-info policy" id="termsOfUse" href="#"></a>
+      <a class="addition-info policy" id="privacyPolicy" href="#"></a>
+    </div>
+  </footer>
 </div>
-
 <script type="module" src="main.js"></script>
 </body>
 </html>

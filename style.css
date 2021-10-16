@@ -16,10 +16,8 @@
   }
 
   .wrapper {
-    padding: 26px 11px 0;
+    padding: 26px 11px;
 
-    /*background-image: url("img/4.png");*/
-    /*background-image: url("img/4@2x.png");*/
     background-image: url("img/4@3x.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,26 +44,17 @@
     color: rgba(255, 255, 255, 0.6);
   }
 
-
-  main {
-    /*text-align: center;*/
-  }
-
   #title {
     font-family: 'San Francisco Pro Display Regular', sans-serif;
     font-size: 32px;
     line-height: 42px;
     text-align: center;
+    margin: 10px 0;
 
     color: #FFFFFF;
 
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
-
-  /*.content {*/
-  /*  width: fit-content;*/
-  /*  margin: 0 auto;*/
-  /*}*/
 
   .list-content {
     padding: 0;
@@ -77,7 +66,7 @@
 
   .list-content-text {
     font-family: SFProText, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 30px;
 
     letter-spacing: -0.321111px;
@@ -86,8 +75,14 @@
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.684495);
   }
 
+  .offers-wrap {
+    text-align: center;
+  }
+
   .offers {
     display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
   }
 
   .offer-month {
@@ -96,11 +91,10 @@
 
   .offer-year {
     position: relative;
-    background-image: url("img/combined-shape.svg ");
+    background-image: url("img/combined-shape.svg");
   }
 
   .offer-period {
-    text-align: center;
     margin: 0 10px;
     width: 45%;
     background-repeat: no-repeat;
@@ -108,26 +102,27 @@
   }
 
   .sale {
-    text-align: end;
+    position: absolute;
+    display: flex;
+    right: 0;
   }
 
   .img-sale {
     position: absolute;
+    top: -1px;
     right: 0;
+    z-index: 1;
   }
 
   #sale-text {
-    position: absolute;
-    right: 0;
-    margin: 8px 3px;
+    z-index: 2;
     font-family: 'San Francisco Pro Display Regular', sans-serif;
     font-size: 10px;
-    line-height: 12px;
-    text-align: center;
+    margin: 9px 3px;
 
     color: #FFFFFF;
   }
-  
+
   .period {
     font-family: 'San Francisco Pro Display Regular', sans-serif;
     font-size: 17px;
@@ -174,5 +169,112 @@
     text-align: center;
 
     color: #FFFFFF;
+  }
+
+  #continue {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 17px;
+    line-height: 17px;
+    padding: 19px 100px;
+
+    text-align: center;
+
+    border: none;
+    color: #FFFFFF;
+    background: linear-gradient(270deg, #1987FF 0%, #19CCFF 100%);
+    border-radius: 30px;
+  }
+
+  .addition-info {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  #cancel-subscription {
+    margin: 11px 0 16px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.5;
+  }
+
+  .policy-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .policy {
+    text-decoration-line: underline;
+    color: #BDC0D0;
+  }
+}
+
+@media (min-width: 375px) {
+  main {
+    margin: 155px 0 0 0;
+  }
+
+  #title {
+    font-size: 36px;
+  }
+
+  .list-content {
+    margin: 29px auto;
+  }
+
+  .list-content-text {
+    font-size: 17px;
+  }
+
+  .offers {
+    margin: 29px 0 16px;
+  }
+
+  .offer-period {
+    display: grid;
+    margin: 0 8px;
+  }
+
+  .period {
+    font-size: 18px;
+  }
+
+  .offer-total-price {
+    font-size: 15px;
+  }
+
+  .offer-total-price strong {
+    font-size: 24px;
+  }
+
+  .alert-text {
+    font-size: 15px;
+  }
+  .monthly-price {
+    margin: 0 auto 26px;
+  }
+
+  .img-sale {
+    width: 127%;
+    right: 0;
+    top: -1px;
+  }
+
+  #cancel-subscription {
+    margin: 11px 0 23px;
+  }
+}
+
+@media (min-width: 414px) {
+  main {
+    margin: 79px 0 0;
+  }
+
+  .img-sale {
+    width: 131%;
+    right: 11px;
+    top: -1px;
   }
 }

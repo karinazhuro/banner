@@ -10,6 +10,7 @@ import zh from "./localization/zh.js";
 
 
 const lang = document.getElementsByTagName("html")[0].getAttribute("lang");
+const continueBtn = document.getElementById('continue');
 const priceMonth = "$9.99";
 const priceYear = "$19.99";
 const monthlyPriceYear = "$1.66";
@@ -21,6 +22,10 @@ const languages = {
 	nl,
 	ru,
 	zh,
+};
+
+function transition() {
+	return location.href = "https://apple.com/";
 };
 
 document.getElementById('restore').innerText = languages[lang]["Restore"];
@@ -41,3 +46,9 @@ document.getElementById('monthly-price-month').innerText = languages[lang]["{{pr
 document.getElementById('monthly-price-year').innerText = languages[lang]["{{price}}/month"]
 	.replace('{{price}}', monthlyPriceYear);
 document.getElementById('sale-text').innerText = languages[lang]["-83%"];
+continueBtn.innerText = languages[lang]["Continue"];
+document.getElementById('cancel-subscription').innerText = languages[lang]["Auto-renewable. Cancel anytime."];
+document.getElementById('termsOfUse').innerText = languages[lang]["Terms of Use"];
+document.getElementById('privacyPolicy').innerText = languages[lang]["Privacy Policy"];
+
+continueBtn.addEventListener('click', transition);
