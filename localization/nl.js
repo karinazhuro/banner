@@ -1,4 +1,4 @@
-{
+export default {
   "Unlimited Access<br>to All Features": "Onbeperkte toegang<br>tot alle functies",
   "Unlimited documents": "Onbeperkt aantal documenten",
   "Count mode": "Aantal modus",

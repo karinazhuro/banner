@@ -1,4 +1,4 @@
-{
+export default {
   "Unlimited Access<br>to All Features": "Unlimited Access<br>to All Features",
   "Unlimited documents": "Unlimited documents",
   "Count mode": "Count mode",
@@ -6,7 +6,7 @@
   "Monthly": "Monthly",
   "<strong>{{price}}</strong><br>per month": "<strong>{{price}}</strong><br>per month",
   "3 DAYS FREE": "3 DAYS FREE",
-  "{{price}}/month": "{{price}}/month",
+  "{{price}}/month": "{{price}} month",
   "Annually": "Annually",
   "-83%": "-83%",
   "<strong>{{price}}</strong><br>per year": "<strong>{{price}}</strong><br>per year",

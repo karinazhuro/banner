@@ -2,20 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Banner</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrapper">
   <header>
-    <img src="img/close.svg" alt="close">
+    <a class="link" href="#">
+      <img class="icon"
+           src="img/close.svg"
+           alt="close">
+    </a>
     <a class="link" id="restore" href="#"></a>
   </header>
   <main>
-    <h1></h1>
+    <h1 id="title"></h1>
+    <ul class="list-content">
+      <li>
+        <img class="icon" src="img/unlimitedDocs.svg" alt="">
+        <span class="list-content-text" id="unlimited-doc"></span>
+      </li>
+      <li>
+        <img class="icon" src="img/export.svg" alt="">
+        <span class="list-content-text" id="export"></span>
+      </li>
+      <li>
+        <img class="icon" src="img/noAds.svg" alt="">
+        <span class="list-content-text" id="ocr"></span>
+      </li>
+    </ul>
+    <div class="offers">
+      <div class="offer-month offer-period">
+        <h2 class="period" id="month"></h2>
+        <p class="offer-total-price" id="price-month"></p>
+        <p class="alert-text" id="alert-month"></p>
+        <p class="monthly-price" id="monthly-price-month"></p>
+      </div>
+      <div class="offer-year offer-period">
+        <div class="sale">
+          <img class="img-sale" src="img/sale.svg" alt="">
+          <p id="sale-text"></p>
+        </div>
+        <h2 class="period" id="year"></h2>
+        <p class="offer-total-price" id="price-year"></p>
+        <p class="alert-text" id="alert-year"></p>
+        <p class="monthly-price" id="monthly-price-year"></p>
+      </div>
+    </div>
   </main>
 </div>
 
-<script src="main.js"></script>
+<script type="module" src="main.js"></script>
 </body>
 </html>

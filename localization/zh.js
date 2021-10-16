@@ -1,4 +1,4 @@
-{
+export default {
   "Unlimited Access<br>to All Features": "无限制使用<br>所有功能",
   "Unlimited documents": "文档无限制",
   "Count mode": "计数模式",

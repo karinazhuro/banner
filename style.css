@@ -1,11 +1,26 @@
+@font-face {
+  font-family: SFProText;
+  src: url("fonts/FontsFree-Net-SFProText-Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: 'San Francisco Pro Display Regular';
+  src: url("fonts/SFProDisplay-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (min-width: 320px) {
   body {
     margin: 0;
   }
-  .wrapper {
-    padding: 64px 20px 38px 24px;
 
-    background-image: url("img/4.png");
+  .wrapper {
+    padding: 26px 11px 0;
+
+    /*background-image: url("img/4.png");*/
+    /*background-image: url("img/4@2x.png");*/
+    background-image: url("img/4@3x.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -13,15 +28,151 @@
   header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .link {
     text-decoration: none;
   }
 
-  .restore {
+  .icon {
+    width: 16px;
+  }
+
+  #restore {
+    font-family: SFProText, sans-serif;
     font-size: 13px;
     line-height: 41px;
     color: rgba(255, 255, 255, 0.6);
+  }
+
+
+  main {
+    /*text-align: center;*/
+  }
+
+  #title {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /*.content {*/
+  /*  width: fit-content;*/
+  /*  margin: 0 auto;*/
+  /*}*/
+
+  .list-content {
+    padding: 0;
+    width: fit-content;
+    margin: auto;
+    list-style: none;
+    text-align: left;
+  }
+
+  .list-content-text {
+    font-family: SFProText, sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+
+    letter-spacing: -0.321111px;
+
+    color: #FFFFFF;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.684495);
+  }
+
+  .offers {
+    display: flex;
+  }
+
+  .offer-month {
+    background-image: url("img/shape-1.svg");
+  }
+
+  .offer-year {
+    position: relative;
+    background-image: url("img/combined-shape.svg ");
+  }
+
+  .offer-period {
+    text-align: center;
+    margin: 0 10px;
+    width: 45%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .sale {
+    text-align: end;
+  }
+
+  .img-sale {
+    position: absolute;
+    right: 0;
+  }
+
+  #sale-text {
+    position: absolute;
+    right: 0;
+    margin: 8px 3px;
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+  
+  .period {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 17px;
+    line-height: 22px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .offer-total-price {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #FFFFFF;
+  }
+
+  .offer-total-price strong {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 19px;
+  }
+
+  .alert-text {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+
+    background: #495795;
+    padding: 2px 0;
+    margin: 11px -3px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .monthly-price {
+    font-family: 'San Francisco Pro Display Regular', sans-serif;
+    font-size: 13px;
+    line-height: 15px;
+
+    text-align: center;
+
+    color: #FFFFFF;
   }
 }
