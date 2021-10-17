@@ -18,7 +18,7 @@
   .wrapper {
     padding: 26px 11px;
 
-    background-image: url("img/4@3x.png");
+    background-image: url("img/4@2x.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -343,6 +343,10 @@
 }
 
 @media (min-width: 414px) {
+  .wrapper {
+    background-image: url("img/4@3x.png");
+  }
+
   main {
     margin: 41px 0 0;
   }

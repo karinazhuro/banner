@@ -31,7 +31,7 @@ const saleWrap = document.getElementById('sale');
 const imgSale = document.getElementById('img-sale');
 const saleText = document.getElementById('sale-text');
 
-const offerPeriodCheck = document.getElementsByClassName('offer-period');
+const offerPeriod = document.getElementsByClassName('offer-period');
 
 const priceForMonth = "$9.99";
 const priceForYear = "$19.99";
@@ -48,15 +48,19 @@ const languages = {
 };
 
 function transition() {
-	return location.href = "https://apple.com/";
+	if (continueBtn.classList.contains('check-continue-month')) {
+		location.href = "https://apple.com/";
+	} else if (continueBtn.classList.contains('check-continue-year')) {
+		location.href = "https://google.com/";
+	}	else return null;
 }
 
-function checkedMonth(btnMonth, btnYear,
-											month, year,
-											priceMonth, priceYear,
-											alertMonth, alertYear,
-											monthlyPriceMonth, monthlyPriceYear,
-											sale, img, text) {
+function getPeriod(btnMonth, btnYear,
+									 month, year,
+									 priceMonth, priceYear,
+									 alertMonth, alertYear,
+									 monthlyPriceMonth, monthlyPriceYear,
+									 sale, img, text, btn) {
 	btnMonth.classList.remove('offer-check-period');
 	month.classList.remove('check-period');
 	priceMonth.classList.remove('check-offer-total-price');
@@ -66,6 +70,10 @@ function checkedMonth(btnMonth, btnYear,
 	sale ? saleWrap.classList.remove('check-sale') : saleWrap.classList.add('check-sale');
 	img ? imgSale.classList.remove('check-img-sale') : imgSale.classList.add('check-img-sale');
 	text ? saleText.classList.remove('check-sale-text') : saleText.classList.add('check-sale-text');
+	btn === 'month' ? continueBtn.classList.add('check-continue-month') :
+		continueBtn.classList.remove('check-continue-month');
+	btn === 'year' ? continueBtn.classList.add('check-continue-year') :
+		continueBtn.classList.remove('check-continue-year');
 
 	btnYear.classList.add('offer-check-period');
 	year.classList.add('check-period');
@@ -84,7 +92,6 @@ monthlyPriceMonth.innerText = languages[lang]["{{price}}/month"].replace('{{pric
 monthlyPriceYear.innerText = languages[lang]["{{price}}/month"].replace('{{price}}', monthlyPriceForYear);
 continueBtn.innerText = languages[lang]["Continue"];
 
-continueBtn.addEventListener('click', transition);
 document.getElementById('restore').innerText = languages[lang]["Restore"];
 document.getElementById('title').innerHTML = languages[lang]["Unlimited Access<br>to All Features"];
 document.getElementById('unlimited-doc').innerText = languages[lang]["Unlimited documents"];
@@ -95,24 +102,28 @@ document.getElementById('cancel-subscription').innerText = languages[lang]["Auto
 document.getElementById('termsOfUse').innerText = languages[lang]["Terms of Use"];
 document.getElementById('privacyPolicy').innerText = languages[lang]["Privacy Policy"];
 
-Array.prototype.forEach.call(offerPeriodCheck, item => {
+continueBtn.addEventListener('click', transition);
+
+Array.prototype.forEach.call(offerPeriod, item => {
 	item.addEventListener('click', () => {
 		let sale = false;
 		let img = false;
 		let text = false;
-		if (item === btnMonth) checkedMonth(
+		let btn = 'month';
+
+		if (item === btnMonth) getPeriod(
 			btnMonth, btnYear,
 			month, year,
 			priceMonth, priceYear,
 			alertMonth, alertYear,
 			monthlyPriceMonth, monthlyPriceYear,
-			sale, img, text);
-		if (item === btnYear) checkedMonth(
+			sale, img, text, btn);
+		if (item === btnYear) getPeriod(
 			btnYear, btnMonth,
 			year, month,
 			priceYear, priceMonth,
 			alertYear, alertMonth,
 			monthlyPriceYear, monthlyPriceMonth,
-			!sale, !img, !text);
+			!sale, !img, !text, btn = 'year');
 	})
 });
