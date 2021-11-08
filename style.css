@@ -18,7 +18,7 @@
   .wrapper {
     padding: 26px 11px;
 
-    background-image: url("img/4@2x.png");
+    background-image: url("img/background/4@2x.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -107,7 +107,7 @@
   }
 
   .offer-month {
-    background-image: url("img/shape-1.svg");
+    background-image: url("img/shape/shape-1.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -115,7 +115,7 @@
 
   .offer-year {
     position: relative;
-    background-image: url("img/combined-shape.svg");
+    background-image: url("img/shape/combined-shape.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -344,7 +344,7 @@
 
 @media (min-width: 414px) {
   .wrapper {
-    background-image: url("img/4@3x.png");
+    background-image: url("img/background/4@3x.png");
   }
 
   main {
@@ -384,5 +384,28 @@
 
   .check-sale-text {
     margin: 13px 7px;
+  }
+}
+
+@media (min-width: 390px) {
+  .wrapper {
+    height: 91.4vh;
+  }
+
+  .sale {
+    right: 2px;
+  }
+
+  /*.check-sale {*/
+  /*  right: -2px;*/
+  /*}*/
+
+  .img-sale {
+    width: 98%;
+  }
+
+  .check-img-sale {
+    width: 86%;
+    right: 2px;
   }
 }
