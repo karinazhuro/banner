@@ -52,7 +52,7 @@ function transition() {
 		location.href = "https://apple.com/";
 	} else if (continueBtn.classList.contains('check-continue-year')) {
 		location.href = "https://google.com/";
-	}	else return null;
+	} else return null;
 }
 
 function getPeriod(btnMonth, btnYear,
@@ -101,6 +101,20 @@ document.getElementById('sale-text').innerText = languages[lang]["-83%"];
 document.getElementById('cancel-subscription').innerText = languages[lang]["Auto-renewable. Cancel anytime."];
 document.getElementById('termsOfUse').innerText = languages[lang]["Terms of Use"];
 document.getElementById('privacyPolicy').innerText = languages[lang]["Privacy Policy"];
+
+document.addEventListener('DOMContentLoaded', (
+	sale = false, 
+	img = false, 
+	text = false, 
+	btn = 'month'
+	) => getPeriod(
+	btnMonth, btnYear,
+	month, year,
+	priceMonth, priceYear,
+	alertMonth, alertYear,
+	monthlyPriceMonth, monthlyPriceYear,
+	sale, img, text, btn)
+);
 
 continueBtn.addEventListener('click', transition);
 
