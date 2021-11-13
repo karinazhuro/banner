@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="wrapper">
+
   <header>
     <a class="link" href="#">
       <img class="icon" src="img/close.svg" alt="close">
@@ -34,20 +35,24 @@
     <div class="offers-wrap">
       <div class="offers">
         <button class="offer-period offer-month" id="btn-month">
-          <h2 class="period" id="month"></h2>
-          <p class="offer-total-price" id="price-month"></p>
-          <p class="alert-text" id="alert-month"></p>
-          <p class="monthly-price" id="monthly-price-month"></p>
+          <span class="period" id="month"></span>
+          <span class="offer-total-price" id="price-month"></span>
+          <span class="alert-wrap" id="alert-wrap-month">
+            <span class="alert-text" id="alert-month"></span>
+          </span>
+          <span class="monthly-price" id="monthly-price-month"></span>
         </button>
         <button class="offer-period offer-year" id="btn-year">
-          <div class="sale" id="sale">
-            <img class="img-sale" id="img-sale" src="img/sale.svg" alt="">
-            <p class="sale-text" id="sale-text"></p>
-          </div>
-          <h2 class="period" id="year"></h2>
-          <p class="offer-total-price" id="price-year"></p>
-          <p class="alert-text" id="alert-year"></p>
-          <p class="monthly-price" id="monthly-price-year"></p>
+            <span class="sale" id="sale">
+              <img class="img-sale" id="img-sale" src="img/sale.svg" alt="">
+              <span class="text-sale" id="text-sale"></span>
+            </span>
+          <span class="period" id="year"></span>
+          <span class="offer-total-price" id="price-year"></span>
+          <span class="alert-wrap" id="alert-wrap-year">
+            <span class="alert-text" id="alert-year"></span>
+          </span>
+          <span class="monthly-price" id="monthly-price-year"></span>
         </button>
       </div>
       <button id="continue" type="button"></button>

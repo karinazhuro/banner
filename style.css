@@ -10,13 +10,14 @@
   font-style: normal;
 }
 
+/* iPhone 5 / SE */
 @media (min-width: 320px) {
   body {
     margin: 0;
   }
 
   .wrapper {
-    padding: 26px 11px;
+    padding: 17px 11px;
 
     background-image: url("img/background/4@2x.png");
     background-repeat: no-repeat;
@@ -33,9 +34,6 @@
     text-decoration: none;
   }
 
-  .icon {
-  }
-
   #restore {
     font-family: SFProText, sans-serif;
     font-size: 13px;
@@ -44,23 +42,25 @@
   }
 
   #title {
+    margin: 13px 0;
+
     font-family: 'SFProDisplay', sans-serif;
     font-size: 32px;
     line-height: 42px;
     text-align: center;
-    margin: 13px 0 10px;
-
     color: #FFFFFF;
 
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .list-content {
+    text-align: left;
+
+    margin: auto;
     padding: 0;
     width: fit-content;
-    margin: auto;
+
     list-style: none;
-    text-align: left;
   }
 
   .list-items {
@@ -76,10 +76,9 @@
     font-family: SFProText, sans-serif;
     font-size: 14px;
     line-height: 30px;
-
     letter-spacing: -0.321111px;
-
     color: #FFFFFF;
+
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.684495);
   }
 
@@ -95,15 +94,21 @@
   }
 
   .offer-period {
-    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
     background: none;
     border: none;
+    opacity: 0.25;
   }
 
-  .offer-check-period {
-    width: 40%;
-    mix-blend-mode: normal;
-    opacity: 0.25;
+  .check-offer-period {
+    padding: 5px;
+
+    opacity: 1;
   }
 
   .offer-month {
@@ -115,6 +120,7 @@
 
   .offer-year {
     position: relative;
+
     background-image: url("img/shape/combined-shape.svg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -122,123 +128,126 @@
   }
 
   .period {
-    margin: 0;
     padding: 10px 0 0;
+
     font-family: 'SFProDisplay', sans-serif;
     font-size: 17px;
     line-height: 22px;
-
-    text-align: center;
-
     color: #FFFFFF;
   }
 
   .check-period {
-    font-size: 16px;
-    padding: 15px 0 0;
+    font-size: 19px;
   }
-
 
   .sale {
     position: absolute;
+    top: 0;
+    right: 5px;
+
     display: flex;
-    top: -1px;
-    right: 6px;
+    align-items: flex-start;
+    justify-content: center;
   }
 
   .check-sale {
-    right: 0;
-    top: 0;
+    right: 10px;
   }
 
   .img-sale {
     position: absolute;
-    width: 99%;
     z-index: 1;
+
+    width: 123%;
   }
 
   .check-img-sale {
-    width: 84%;
+    width: 133%;
   }
 
-  .sale-text {
+  .text-sale {
     z-index: 2;
+
     font-family: 'SFProDisplay', sans-serif;
     font-size: 10px;
-    margin: 9px 3px;
-
-    color: #FFFFFF;
+    line-height: 25px;
+    color: #ffffff;
   }
 
   .check-sale-text {
-    font-size: 8px;
-    margin: 9px 8px 0 3px;
+    line-height: 31px;
   }
 
   .offer-total-price {
-    font-family: 'SFProDisplay', sans-serif;
-    font-size: 13px;
-    line-height: 15px;
+    margin: 13px 0;
 
+    font-family: 'SFProDisplay', sans-serif;
+    font-size: 14px;
     color: #FFFFFF;
   }
 
   .check-offer-total-price {
-    margin: 5px 0;
+    font-size: 15px;
   }
 
   .offer-total-price strong {
     font-family: 'SFProDisplay', sans-serif;
-    font-size: 19px;
+    font-size: 22px;
+  }
+
+  .check-offer-total-price strong {
+    font-size: 24px;
+  }
+
+  .alert-wrap {
+    width: 129px;
+    padding: 2px 0;
+
+    background: #495795;
+  }
+
+  .check-alert-wrap {
+    width: 137px;
   }
 
   .alert-text {
     font-family: 'SFProDisplay', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
     font-weight: 600;
-
-    background: #495795;
-    padding: 2px 0;
-    margin: 11px -3px;
-
     text-align: center;
-
     color: #FFFFFF;
   }
 
   .check-alert-text {
-    font-size: 10px;
-    margin: 5px -3px;
+    font-size: 15px;
   }
 
   .monthly-price {
-    margin: 0;
-    padding: 0 0 10px;
+    margin: 8px 0;
+
     font-family: 'SFProDisplay', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 15px;
-
     text-align: center;
-
     color: #FFFFFF;
   }
 
   .check-monthly-price {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   #continue {
+    padding: 19px 100px;
+
     font-family: 'SFProDisplay', sans-serif;
     font-size: 17px;
     line-height: 17px;
-    padding: 19px 100px;
-
     text-align: center;
-
-    border: none;
     color: #FFFFFF;
+
     background: linear-gradient(270deg, #1987FF 0%, #19CCFF 100%);
+    border: none;
     border-radius: 30px;
   }
 
@@ -252,8 +261,10 @@
 
   #cancel-subscription {
     margin: 11px 0 16px;
+
     text-align: center;
     color: #FFFFFF;
+
     opacity: 0.5;
   }
 
@@ -268,13 +279,15 @@
   }
 }
 
+/* iPhone 6 / 7 / 8 / X */
 @media (min-width: 375px) {
   .wrapper {
-    padding: 47px 11px 26px;
+    height: 92.6vh;
+    padding: 31px 20px;
   }
 
   main {
-    margin: 144px 0 0 0;
+    margin: 157px 0 0 0;
   }
 
   #title {
@@ -282,59 +295,15 @@
   }
 
   .list-content {
-    margin: 29px auto;
+    margin: 29px auto 44px;
   }
 
   .list-content-text {
     font-size: 17px;
   }
 
-  .offers {
-    margin: 29px 0 16px;
-  }
-
-  .offer-period {
-    display: grid;
-  }
-
-  .period {
-    font-size: 18px;
-    padding: 24px 0 10px;
-  }
-
-  .offer-total-price {
-    font-size: 15px;
-  }
-
-  .offer-total-price strong {
-    font-size: 24px;
-  }
-
-  .alert-text {
-    font-size: 15px;
-    margin: 11px -8px;
-  }
-
-  .sale {
-    right: 0;
-  }
-
-  .check-sale {
-    right: -5px;
-  }
-
-  .img-sale {
-    width: 97%;
-  }
-
-  .check-img-sale {
-    width: 83%;
-  }
-
-  .sale-text {
-    margin: 12px 5px;
-    font-size: 12px;
-    font-weight: 600;
+  #continue {
+    margin: 16px 0;
   }
 
   #cancel-subscription {
@@ -342,70 +311,11 @@
   }
 }
 
+/* iPhone 12 */
+@media (min-width: 390px) {}
+
 @media (min-width: 414px) {
   .wrapper {
     background-image: url("img/background/4@3x.png");
-  }
-
-  main {
-    margin: 41px 0 0;
-  }
-
-  .alert-text {
-    margin: 18px -8px;
-  }
-
-  .monthly-price {
-    margin: 0 0 13px;
-  }
-
-  .sale {
-    top: 1px;
-    right: -2px;
-  }
-
-  .check-sale {
-    top: 2px;
-    right: 0;
-  }
-
-  .img-sale {
-    width: 95%;
-  }
-
-  .check-img-sale {
-    width: 87%;
-    right: 0;
-  }
-
-  .sale-text {
-    margin: 13px 8px;
-  }
-
-  .check-sale-text {
-    margin: 13px 7px;
-  }
-}
-
-@media (min-width: 390px) {
-  .wrapper {
-    height: 91.4vh;
-  }
-
-  .sale {
-    right: 2px;
-  }
-
-  /*.check-sale {*/
-  /*  right: -2px;*/
-  /*}*/
-
-  .img-sale {
-    width: 98%;
-  }
-
-  .check-img-sale {
-    width: 86%;
-    right: 2px;
   }
 }
