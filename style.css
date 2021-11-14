@@ -14,6 +14,8 @@
 @media (min-width: 320px) {
   body {
     margin: 0;
+
+    background: aliceblue;
   }
 
   .wrapper {
@@ -312,10 +314,14 @@
 }
 
 /* iPhone 12 */
-@media (min-width: 390px) {}
+@media (min-width: 390px) {
+}
 
 @media (min-width: 414px) {
   .wrapper {
+    margin: 0 auto;
+    max-width: 414px;
+
     background-image: url("img/background/4@3x.png");
   }
 }

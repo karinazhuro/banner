@@ -8,65 +8,81 @@ import nl from "./localization/nl.js";
 import ru from "./localization/ru.js";
 import zh from "./localization/zh.js";
 
-const lang = document.getElementsByTagName("html")[0].getAttribute("lang");
-
 const continueBtn = document.getElementById('continue');
 
-const btnMonth = document.getElementById('btn-month');
-const btnYear = document.getElementById('btn-year');
-
-const month = document.getElementById('month');
-const year = document.getElementById('year');
-
-const priceMonth = document.getElementById('price-month');
-const priceYear = document.getElementById('price-year');
-
-const alertWrapMonth = document.getElementById('alert-wrap-month');
-const alertWrapYear = document.getElementById('alert-wrap-year');
-
-const alertMonth = document.getElementById('alert-month');
-const alertYear = document.getElementById('alert-year');
-
-const monthlyPriceMonth = document.getElementById('monthly-price-month');
-const monthlyPriceYear = document.getElementById('monthly-price-year');
-
-const saleWrap = document.getElementById('sale');
-const imgSale = document.getElementById('img-sale');
-const saleText = document.getElementById('text-sale');
-
-const offerPeriod = document.getElementsByClassName('offer-period');
-
-const priceForMonth = "$9.99";
-const priceForYear = "$19.99";
-const monthlyPriceForYear = "$1.66";
-
-const languages = {
-	en,
-	es,
-	fr,
-	ja,
-	nl,
-	ru,
-	zh,
-};
-
-function transition() {
-	if (continueBtn.classList.contains('check-continue-month')) {
-		location.href = "https://apple.com/";
-	}
-
-	if (continueBtn.classList.contains('check-continue-year')) {
-		location.href = "https://google.com/";
+function getElements() {
+	return {
+		lang: document.getElementsByTagName("html")[0].getAttribute("lang"),
+		btnMonth: document.getElementById('btn-month'),
+		btnYear: document.getElementById('btn-year'),
+		month: document.getElementById('month'),
+		year: document.getElementById('year'),
+		priceMonth: document.getElementById('price-month'),
+		priceYear: document.getElementById('price-year'),
+		alertWrapMonth: document.getElementById('alert-wrap-month'),
+		alertWrapYear: document.getElementById('alert-wrap-year'),
+		alertMonth: document.getElementById('alert-month'),
+		alertYear: document.getElementById('alert-year'),
+		monthlyPriceMonth: document.getElementById('monthly-price-month'),
+		monthlyPriceYear: document.getElementById('monthly-price-year'),
+		saleWrap: document.getElementById('sale'),
+		imgSale: document.getElementById('img-sale'),
+		saleText: document.getElementById('text-sale'),
+		offerPeriod: document.getElementsByClassName('offer-period'),
 	}
 }
 
-function getPeriod(btnMonth, btnYear,
-									 month, year,
-									 priceMonth, priceYear,
-									 alertWrapMonth, alertWrapYear,
-									 alertMonth, alertYear,
-									 monthlyPriceMonth, monthlyPriceYear,
-									 sale, img, text, btn) {
+function getPeriod(item) {
+	const {
+		btnMonth, btnYear,
+		month, year,
+		priceMonth, priceYear,
+		alertWrapMonth, alertWrapYear,
+		alertMonth, alertYear,
+		monthlyPriceMonth, monthlyPriceYear,
+		saleWrap, imgSale, saleText
+	} = getElements();
+
+	const sale = false;
+	const img = false;
+	const text = false;
+	let period = 'month';
+
+	switch (item) {
+		case btnMonth:
+			changePeriod(btnMonth, btnYear,
+				month, year,
+				priceMonth, priceYear,
+				alertWrapMonth, alertWrapYear,
+				alertMonth, alertYear,
+				monthlyPriceMonth, monthlyPriceYear,
+				saleWrap, imgSale, saleText,
+				sale, img, text, period);
+			break;
+
+		case btnYear:
+			period = 'year';
+
+			changePeriod(btnYear, btnMonth,
+				year, month,
+				priceYear, priceMonth,
+				alertWrapYear, alertWrapMonth,
+				alertYear, alertMonth,
+				monthlyPriceYear, monthlyPriceMonth,
+				saleWrap, imgSale, saleText,
+				!sale, !img, !text, period);
+			break;
+	}
+}
+
+function changePeriod(btnMonth, btnYear,
+											month, year,
+											priceMonth, priceYear,
+											alertWrapMonth, alertWrapYear,
+											alertMonth, alertYear,
+											monthlyPriceMonth, monthlyPriceYear,
+											saleWrap, imgSale, saleText,
+											sale, img, text, period) {
 	btnMonth.classList.add('check-offer-period');
 	month.classList.add('check-period');
 	priceMonth.classList.add('check-offer-total-price');
@@ -84,67 +100,76 @@ function getPeriod(btnMonth, btnYear,
 	sale ? saleWrap.classList.add('check-sale') : saleWrap.classList.remove('check-sale');
 	img ? imgSale.classList.add('check-img-sale') : imgSale.classList.remove('check-img-sale');
 	text ? saleText.classList.add('check-sale-text') : saleText.classList.remove('check-sale-text');
-	
-	btn === 'month' ? continueBtn.classList.add('check-continue-month') :
+
+	period === 'month' ? continueBtn.classList.add('check-continue-month') :
 		continueBtn.classList.remove('check-continue-month');
-	btn === 'year' ? continueBtn.classList.add('check-continue-year') :
+	period === 'year' ? continueBtn.classList.add('check-continue-year') :
 		continueBtn.classList.remove('check-continue-year');
 }
 
-month.innerText = languages[lang]["Monthly"];
-year.innerText = languages[lang]["Annually"];
-priceMonth.innerHTML = languages[lang]["<strong>{{price}}</strong><br>per month"].replace('{{price}}', priceForMonth);
-priceYear.innerHTML = languages[lang]["<strong>{{price}}</strong><br>per year"].replace('{{price}}', priceForYear);
-alertMonth.innerText = languages[lang]["3 DAYS FREE"];
-alertYear.innerText = languages[lang]["MOST POPULAR"];
-monthlyPriceMonth.innerText = languages[lang]["{{price}}/month"].replace('{{price}}', priceForMonth);
-monthlyPriceYear.innerText = languages[lang]["{{price}}/month"].replace('{{price}}', monthlyPriceForYear);
-continueBtn.innerText = languages[lang]["Continue"];
-saleText.innerText = languages[lang]["-83%"];
+function addText(elements) {
+	const languages = {
+		en,
+		es,
+		fr,
+		ja,
+		nl,
+		ru,
+		zh,
+	};
 
-document.getElementById('restore').innerText = languages[lang]["Restore"];
-document.getElementById('title').innerHTML = languages[lang]["Unlimited Access<br>to All Features"];
-document.getElementById('unlimited-doc').innerText = languages[lang]["Unlimited documents"];
-document.getElementById('export').innerText = languages[lang]["Count mode"];
-document.getElementById('ocr').innerText = languages[lang]["Text recognition (OCR)"];
-document.getElementById('cancel-subscription').innerText = languages[lang]["Auto-renewable. Cancel anytime."];
-document.getElementById('termsOfUse').innerText = languages[lang]["Terms of Use"];
-document.getElementById('privacyPolicy').innerText = languages[lang]["Privacy Policy"];
+	const priceForMonth = "$9.99";
+	const priceForYear = "$19.99";
+	const monthlyPriceForYear = "$1.66";
 
-document.addEventListener('DOMContentLoaded', (
-	e, sale = false, img = false, text = false, btn = 'month') => getPeriod(
-	btnMonth, btnYear,
-	month, year,
-	priceMonth, priceYear,
-	alertWrapMonth, alertWrapYear,
-	alertMonth, alertYear,
-	monthlyPriceMonth, monthlyPriceYear,
-	sale, img, text, btn)
+	const {
+		lang, month, year, priceMonth, priceYear, alertMonth, alertYear, monthlyPriceMonth, monthlyPriceYear, saleText
+	} = elements;
+
+	month.innerText = languages[lang]["Monthly"];
+	year.innerText = languages[lang]["Annually"];
+	priceMonth.innerHTML = languages[lang]["<strong>{{price}}</strong><br>per month"].replace('{{price}}', priceForMonth);
+	priceYear.innerHTML = languages[lang]["<strong>{{price}}</strong><br>per year"].replace('{{price}}', priceForYear);
+	alertMonth.innerText = languages[lang]["3 DAYS FREE"];
+	alertYear.innerText = languages[lang]["MOST POPULAR"];
+	monthlyPriceMonth.innerText = languages[lang]["{{price}}/month"].replace('{{price}}', priceForMonth);
+	monthlyPriceYear.innerText = languages[lang]["{{price}}/month"].replace('{{price}}', monthlyPriceForYear);
+	continueBtn.innerText = languages[lang]["Continue"];
+	saleText.innerText = languages[lang]["-83%"];
+
+	document.getElementById('restore').innerText = languages[lang]["Restore"];
+	document.getElementById('title').innerHTML = languages[lang]["Unlimited Access<br>to All Features"];
+	document.getElementById('unlimited-doc').innerText = languages[lang]["Unlimited documents"];
+	document.getElementById('export').innerText = languages[lang]["Count mode"];
+	document.getElementById('ocr').innerText = languages[lang]["Text recognition (OCR)"];
+	document.getElementById('cancel-subscription').innerText = languages[lang]["Auto-renewable. Cancel anytime."];
+	document.getElementById('termsOfUse').innerText = languages[lang]["Terms of Use"];
+	document.getElementById('privacyPolicy').innerText = languages[lang]["Privacy Policy"];
+}
+
+function transition() {
+	if (continueBtn.classList.contains('check-continue-month')) {
+		location.href = "https://apple.com/";
+	}
+
+	if (continueBtn.classList.contains('check-continue-year')) {
+		location.href = "https://google.com/";
+	}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+		const elements = getElements();
+		const {btnMonth} = elements;
+
+		getPeriod(btnMonth);
+		addText(elements);
+	}
 );
 
 continueBtn.addEventListener('click', transition);
 
-Array.prototype.forEach.call(offerPeriod, item => {
+Array.prototype.forEach.call(getElements().offerPeriod, item => {
 	item.addEventListener('click', () => {
-		let sale = false;
-		let img = false;
-		let text = false;
-
-		if (item === btnMonth) getPeriod(
-			btnMonth, btnYear,
-			month, year,
-			priceMonth, priceYear,
-			alertWrapMonth, alertWrapYear,
-			alertMonth, alertYear,
-			monthlyPriceMonth, monthlyPriceYear,
-			sale, img, text, 'month');
-		if (item === btnYear) getPeriod(
-			btnYear, btnMonth,
-			year, month,
-			priceYear, priceMonth,
-			alertWrapYear, alertWrapMonth,
-			alertYear, alertMonth,
-			monthlyPriceYear, monthlyPriceMonth,
-			!sale, !img, !text, 'year');
+		getPeriod(item)
 	})
 });
