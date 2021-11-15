@@ -158,13 +158,12 @@ function transition() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-		const elements = getElements();
-		const {btnMonth} = elements;
+	const elements = getElements();
+	const {btnMonth} = elements;
 
-		getPeriod(btnMonth);
-		addText(elements);
-	}
-);
+	getPeriod(btnMonth);
+	addText(elements);
+});
 
 continueBtn.addEventListener('click', transition);
 
