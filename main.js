@@ -12,7 +12,6 @@ const continueBtn = document.getElementById('continue');
 
 function getElements() {
 	return {
-		lang: document.getElementsByTagName("html")[0].getAttribute("lang"),
 		btnMonth: document.getElementById('btn-month'),
 		btnYear: document.getElementById('btn-year'),
 		month: document.getElementById('month'),
@@ -29,6 +28,8 @@ function getElements() {
 		imgSale: document.getElementById('img-sale'),
 		saleText: document.getElementById('text-sale'),
 		offerPeriod: document.getElementsByClassName('offer-period'),
+		checkPeriod: document.getElementsByClassName('check-period'),
+		period: document.getElementsByClassName('period'),
 	}
 }
 
@@ -75,6 +76,20 @@ function getPeriod(item) {
 	}
 }
 
+function setLang() {
+	const localLang = navigator.language.slice(0, 2);
+	const urlParamLang = new URLSearchParams(window.location.search);
+
+	if (!localStorage.getItem('lang')) localStorage.setItem('lang', localLang);
+	if (localStorage.getItem('lang') !== urlParamLang.get('lang')) {
+		localStorage.setItem('lang', urlParamLang.get('lang'));
+		window.location.search = `lang=${localStorage.getItem('lang')}`;
+		history.pushState(null, null, `lang=${localStorage.getItem('lang')}`);
+	}
+
+	return localStorage.getItem('lang');
+}
+
 function changePeriod(btnMonth, btnYear,
 											month, year,
 											priceMonth, priceYear,
@@ -107,7 +122,7 @@ function changePeriod(btnMonth, btnYear,
 		continueBtn.classList.remove('check-continue-year');
 }
 
-function addText(elements) {
+function addText(elements, lang) {
 	const languages = {
 		en,
 		es,
@@ -123,8 +138,17 @@ function addText(elements) {
 	const monthlyPriceForYear = "$1.66";
 
 	const {
-		lang, month, year, priceMonth, priceYear, alertMonth, alertYear, monthlyPriceMonth, monthlyPriceYear, saleText
+		month,
+		year,
+		priceMonth,
+		priceYear,
+		alertMonth,
+		alertYear,
+		monthlyPriceMonth,
+		monthlyPriceYear,
+		saleText,
 	} = elements;
+
 
 	month.innerText = languages[lang]["Monthly"];
 	year.innerText = languages[lang]["Annually"];
@@ -159,10 +183,9 @@ function transition() {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const elements = getElements();
-	const {btnMonth} = elements;
 
-	getPeriod(btnMonth);
-	addText(elements);
+	getPeriod(elements.btnMonth);
+	addText(elements, setLang());
 });
 
 continueBtn.addEventListener('click', transition);
