@@ -9,6 +9,15 @@ import ru from "./localization/ru.js";
 import zh from "./localization/zh.js";
 
 const continueBtn = document.getElementById('continue');
+const languages = {
+	en,
+	es,
+	fr,
+	ja,
+	nl,
+	ru,
+	zh,
+};
 
 function getElements() {
 	return {
@@ -80,11 +89,10 @@ function setLang() {
 	const localLang = navigator.language.slice(0, 2);
 	const urlParamLang = new URLSearchParams(window.location.search);
 
-	if (!localStorage.getItem('lang')) localStorage.setItem('lang', localLang);
+	if (localStorage.getItem('lang') === 'null') localStorage.setItem('lang', localLang);
+	if (urlParamLang.get('lang') === null) window.location.search = `lang=${localStorage.getItem('lang')}`;
 	if (localStorage.getItem('lang') !== urlParamLang.get('lang')) {
 		localStorage.setItem('lang', urlParamLang.get('lang'));
-		window.location.search = `lang=${localStorage.getItem('lang')}`;
-		history.pushState(null, null, `lang=${localStorage.getItem('lang')}`);
 	}
 
 	return localStorage.getItem('lang');
@@ -123,16 +131,6 @@ function changePeriod(btnMonth, btnYear,
 }
 
 function addText(elements, lang) {
-	const languages = {
-		en,
-		es,
-		fr,
-		ja,
-		nl,
-		ru,
-		zh,
-	};
-
 	const priceForMonth = "$9.99";
 	const priceForYear = "$19.99";
 	const monthlyPriceForYear = "$1.66";
