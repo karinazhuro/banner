@@ -89,7 +89,7 @@ function setLang() {
 	const localLang = navigator.language.slice(0, 2);
 	const urlParamLang = new URLSearchParams(window.location.search);
 
-	if (!localStorage.getItem('lang')) {
+	if (!localStorage.getItem('lang') || localStorage.getItem('lang') === 'null') {
 		localStorage.setItem('lang', localLang);
 		window.location.search = `lang=${localStorage.getItem('lang')}`
 	}
